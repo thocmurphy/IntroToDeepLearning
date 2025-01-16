@@ -83,7 +83,7 @@ class AdaGrad:
 
 class RMSprop:
     # Initialize the optimizer with a default learning rate of 1.0
-    def __init__(self, learning_rate=1.0, decay = 0.0, epsilon=1e-7, rho=0.9):
+    def __init__(self, learning_rate=0.001, decay = 0.0, epsilon=1e-7, rho=0.9):
         self.learning_rate = learning_rate
         self.current_learning_rate = learning_rate
         self.decay = decay
@@ -116,7 +116,7 @@ class RMSprop:
 
 class Adam:
     # Initialize the optimizer with a default learning rate of 1.0
-    def __init__(self, learning_rate=1.0, decay = 0.0, epsilon=1e-7, rho=0.9, beta_1=0.9, beta_2=0.999):
+    def __init__(self, learning_rate=0.001, decay = 0.0, epsilon=1e-7, beta_1=0.9, beta_2=0.999):
         self.learning_rate = learning_rate
         self.current_learning_rate = learning_rate
         self.decay = decay
