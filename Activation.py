@@ -1,5 +1,5 @@
 from StandardLib import *
-from Statistics import CategoricalCrossEntropy
+from Loss import CategoricalCrossEntropy
 
 '''
 This file contains various Activation objects/functions to be used in a neural 
