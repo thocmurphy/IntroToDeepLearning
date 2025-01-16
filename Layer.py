@@ -47,6 +47,15 @@ class Dense:
         # Gradient on values
         self.dinputs = np.dot(dvalues, self.weights.T)
 
+    # Retrieve layer parameters
+    def get_parameters(self):
+        return self.weights, self.biases
+    
+    # Updates the model with new parameters
+    def set_parameters(self, weights, biases):
+        self.weights = weights
+        self.biases = biases
+
 
 # Dropout
 class Dropout:
