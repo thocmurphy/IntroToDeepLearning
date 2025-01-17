@@ -1,4 +1,4 @@
-import StandardLib
+from StandardLib import *
 from Layer import Input
 import Activation
 import Loss
@@ -142,6 +142,32 @@ class Model:
         with open(path, 'rb') as f:
             model = pickle.load(f)
         return model
+    
+    # Predicts based on the samples
+    def predict(self, X, *, batch_size=None):
+        # Default value if batch size is not being set
+        prediction_steps = 1
+        # Calculate number of steps
+        if batch_size is not None:
+            prediction_steps = len(X) // batch_size
+            # Make sure steps fit
+            if prediction_steps * batch_size < len(X):
+                prediction_steps += 1
+        # Model outputs
+        output = []
+        # Iterate over steps
+        for step in range(prediction_steps):
+            # If batch is not set - train using one step and full dataset
+            if batch_size is None:
+                batch_X = X
+            else:
+                batch_x = X[step*batch_X : (step + 1)*batch_X]
+            # Perform the backwards pass
+            batch_output = self.forward(batch_X, training=False)
+            # Append batch predition to the list of predictions
+            output.append(batch_output)
+        # Stack and return results
+        return np.vstack(output)
 
     # Finalize the model
     def finalize(self):
