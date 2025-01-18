@@ -1,26 +1,26 @@
-### IntroToDeepLearning
+# IntroToDeepLearning
 ## Project Overview
-# Introduction
+### Introduction
 This project is an introduction to Deep Learning through Neural Networks. It is based on the textbook ["Neural Networks from Scratch"](https://nnfs.io/) by Harrison Kinsley and Daniel Kukiela. A guided YouTube tutorial by sentdex called "Neural Networks from Scratch" was also followed for the beginning stages of this project. All code is based on the textbook. The purpose of this project was to be hands-on in the process of constructing a neural network and to learn what is happening behind the scenes when using an imported library such as PyTorch or TensorFlow.
 
 During this project, the tutorial was followed to build a Neural Network model using multiple different layers and various different activation and optimization functions. Throughout the project it was observed how different functions and parameters can produce varying results based on the dataset being input into the model. It is important to test out these functions and parameters to find an optimal fit for your data. This process can be assisted by the use of optimizers, which alter the learning rate by using the loss and a decay parameter in attempt to increase the performance of the network. Although optimizers can aid in the learning process, it is still important to go through trial and error process (usually with educated guessing) to find an initial learning rate and decay that can work with the optimizer to train your data as efficiently and effectively as possible.
 
-# Layer Objects
+### Layer Objects
 For the purposes of this project, the primary style of layer used was a Dense Layer. This means that every neuron inside this layer is connected to every neuron from the previous layer. Each neuron receives a weighted input from each previous layer, and is used in combination with a bias to produce an output that can be passed on to the next layer. This project also introduced a Dropout Layer, which is used to randomly drop certain neurons during the training phase of a model. Dropping neurons can be used to train a model more effectively, ensuring that the model cannot become reliant on any one specific neuron for the accuracy of its output. An Input Layer was also created. This is simply where the data for the model is initially input.
 
-# Activation Objects
+### Activation Objects
 In between each Dense Layer is where you would see an Activation function. Activation functions are used to separate neural networks from linear regression models. An activation function can be used to determine whether the output from a neuron is worth passing on to the next layer, or if the output is irrelevant. These functions can be compared to a neuron 'firing' inside of the brain, as they are the deciding factor for what features the model is training and remembering data for. This project focused on several different Activation functions. These functions were Rectified Linear Unit (ReLU), Sigmoid, Softmax, and Linear. ReLU Activation was the most frequently used function in this project for the hidden layers. This function changes any input that is less than 0 to 0 and leaves all other inputs as is. This trains the model to ignore any 0's in the data, and instead focus on the larger numbers. This project also used the Softmax Activation function. This function was used in the output layer because it yields a probability distribution that sums up to 1 for all of the output neurons. This is used to predict outputs based on the confidence displayed in the distribution. For a more efficient output, an object was also created to calculate both the Softmax Activation and Categorical Cross-Entropy Loss at the same time, but more on this function will be discussed later.
 
-# Loss Objects
+### Loss Objects
 Loss is a key parameter involved in the neural network, as it is used in optimizing and determining the effectiveness of the network. In this project Loss was typically calculated using a Categorical Cross-Entropy approach. This approach measures the performance of a model whose output is a probability distribution against the expected probability distribution. This approach is commonly used with the Softmax Activation method because of the use of probability distribution functions. A few other Loss objects were also implemented in this model but seldom used, such as Binary Cross-Entropy, Mean Squared Error, and Mean Absolute Error.
 
-# Optimizer Objects
+### Optimizer Objects
 Loss was utilized by Optimizers in this project to fine-tune the learning rate of the model in attempy to achieve the most efficient training and the best results. Optimizers, as discussed earlier, are a way of tweaking the initial learing rate of a model in order to train more effectively. The optimizers implemented in this project were Stochastic Gradient Descent (SGD), Adaptive Gradient (AdaGrad), Root Mean Square Propogation (RMSprop), and Adaptive Moment Estimation (Adam). The textbook went through the process of creating each optimizer, but primarily to learn how each one works. This project almost entirely used the Adam optimizer, which is built on the advantages of both the AdaGrad and RMSprop optimizers. Adam computes an adaptive learning rate for each parameter in the model using a running average of the gradients and their squares. It then applies a bias correction to account for the initialization of these running averages. The advantage of using Adam over other optimizers is that it combines the benefits of adapting to both the learning rates and momentum, making it effective for a wide range of deep learning applications.
 
-# Accuracy Objects
+### Accuracy Objects
 Accuracy is also a large part of neural networks, seeing as the entire point of a network is to have an accurate model that can predict outputs based on the training the model received. There were two different objects used for accuracy in this project: Categorical and Regression. Categorical is used in class-based situations, such as identifying images and patterns, whereas Regression is used for continuous predictions, such as predicting a function (such as a sinusoid).
 
-# Model Objects
+### Model Objects
 The complex object implemented in this project was the Model class. This class ties together all of the other objects to create a comprehensive neural network. This object is used to initialize, add layers, decide which loss, accuracy, and optimization functions are being used, and train the model. It is adaptable to any of the different functions that have been implemented throughout this project. Functions have been added to this object to allow the user to save either the parameters or the entire model itself to prevent the user from having to retrain a model everytime they want to use it. A function was also added to allow users to input data post-training to test the model's accuracy themself.
 
 ## Results
