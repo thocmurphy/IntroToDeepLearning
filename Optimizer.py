@@ -1,8 +1,8 @@
 from StandardLib import *
 
 '''
-This file contains a Stochastic Gradient Descent object to be used in optomizing
-a neural network.
+This file contains various Optimizer objects/functions to be used in a neural 
+network.
 
 All classes and functions are based on the "Neural Networks from Scratch" textbook.
 '''
@@ -49,6 +49,7 @@ class SGD:
         self.iterations += 1
 
 
+# Adaptive Gradient Optimizer
 class AdaGrad:
     # Initialize the optimizer with a default learning rate of 1.0
     def __init__(self, learning_rate=1.0, decay = 0.0, epsilon=1e-7):
@@ -81,6 +82,7 @@ class AdaGrad:
         self.iterations += 1
 
 
+# Root Mean Square Propogation Optimizer
 class RMSprop:
     # Initialize the optimizer with a default learning rate of 1.0
     def __init__(self, learning_rate=0.001, decay = 0.0, epsilon=1e-7, rho=0.9):
@@ -114,6 +116,7 @@ class RMSprop:
         self.iterations += 1
 
 
+# Adaptive Moment Estimation Optimizer
 class Adam:
     # Initialize the optimizer with a default learning rate of 1.0
     def __init__(self, learning_rate=0.001, decay = 0.0, epsilon=1e-7, beta_1=0.9, beta_2=0.999):

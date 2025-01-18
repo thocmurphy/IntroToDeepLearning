@@ -1,11 +1,16 @@
 from StandardLib import *
 
+'''
+This file contains various Layer objects/functions to be used in a neural 
+network.
+
+All classes and functions are based on the "Neural Networks from Scratch" textbook.
+'''
+
 # Dense layer
 class Dense:
     # Layer initialization
-    def __init__(self, n_inputs, n_neurons,
-                 weight_regularizer_l1=0, weight_regularizer_l2=0,
-                 bias_regularizer_l1=0, bias_regularizer_l2=0):
+    def __init__(self, n_inputs, n_neurons, weight_regularizer_l1=0, weight_regularizer_l2=0, bias_regularizer_l1=0, bias_regularizer_l2=0):
         # Initialize weights and biases
         self.weights = 0.01 * np.random.randn(n_inputs, n_neurons)
         self.biases = np.zeros((1, n_neurons))
@@ -60,8 +65,7 @@ class Dense:
 # Dropout
 class Dropout:
     def __init__(self, rate):
-        # Store rate, we invert it as for example for dropout
-        # of 0.1 we need success rate of 0.9
+        # Store inverted rate
         self.rate = 1 - rate
     # Forward pass
     def forward(self, inputs, training):
